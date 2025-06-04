@@ -142,13 +142,13 @@ USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'suporteconstsoft@gmail.com'
+EMAIL_HOST_USER = 'devruanclaudioofc@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL = "suporteconstsoft@gmail.com"
-NOTIFY_EMAIL = "suporteconstsoft@gmail.com"
+DEFAULT_FROM_EMAIL = "devruanclaudioofc@gmail.com"
+NOTIFY_EMAIL = "devruanclaudioofc@gmail.com"
 
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['pt',]
 CITIES_LIGHT_INCLUDE_COUNTRIES = ['BR']
@@ -190,8 +190,8 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=180),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=50),
-    'ROTATE_REFRESH_TOKENS': True,
-    'BLACKLIST_AFTER_ROTATION': True,
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
     'UPDATE_LAST_LOGIN': False,
 
     'ALGORITHM': 'HS256',
