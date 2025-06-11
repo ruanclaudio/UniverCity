@@ -80,17 +80,6 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# if DEBUG:
-#
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-#
-# else:
-
 POSTGRES_USER = os.getenv('POSTGRES_USER')
 POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
 POSTGRES_HOST = os.getenv('POSTGRES_HOST')
@@ -160,23 +149,24 @@ CORS_ALLOWED_ORIGINS = [
     'http://212.85.17.161',
     'http://localhost:3000',
 ]
+
 # if DEBUG:
 #
 #     SESSION_COOKIE_SECURE = False
 #     CSRF_COOKIE_SECURE = False
 #
 # else:
-
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-
-CSRF_TRUSTED_ORIGINS = [
-    'http://212.85.17.161',
-    'http://212.85.17.161:3000',
-    'http://localhost:3000',
-    'https://univercity-app-zeta.vercel.app',
-    'http://212.85.17.161'
-]
+#
+#     SESSION_COOKIE_SECURE = True
+#     CSRF_COOKIE_SECURE = True
+#
+#     CSRF_TRUSTED_ORIGINS = [
+#         'http://212.85.17.161',
+#         'http://212.85.17.161:3000',
+#         'http://localhost:3000',
+#         'https://univercity-app-zeta.vercel.app',
+#         'http://212.85.17.161'
+#     ]
 
 PHONENUMBER_DEFAULT_REGION = 'BR'
 

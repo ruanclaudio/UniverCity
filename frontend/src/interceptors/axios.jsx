@@ -4,7 +4,8 @@ let refresh = false;
 
 const axiosInstance = axios.create({
     baseURL: process.env.NODE_ENV === 'production' 
-      ? 'https://api-univercity.vercel.app/'
+      // ? 'https://api-univercity.vercel.app/'
+      ? 'http://212.85.17.161:3000'
       : 'http://127.0.0.1:8000',
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true
