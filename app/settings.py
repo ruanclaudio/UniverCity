@@ -3,6 +3,7 @@ from datetime import timedelta
 import urllib.parse
 import os
 
+from django.contrib import staticfiles
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -217,7 +218,10 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
+
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
