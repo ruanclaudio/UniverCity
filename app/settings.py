@@ -157,7 +157,7 @@ DATETIME_FORMAT = 'd/m/Y às H:i:s'
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     'http://212.85.17.161:3000',
-    'http://212.85.17.161'
+    'http://212.85.17.161',
     'http://localhost:3000',
 ]
 # if DEBUG:
@@ -171,8 +171,8 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://212.85.17.161'
-    'http://212.85.17.161:3000'
+    'http://212.85.17.161',
+    'http://212.85.17.161:3000',
     'http://localhost:3000',
     'https://univercity-app-zeta.vercel.app',
     'http://212.85.17.161'
