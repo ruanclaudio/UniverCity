@@ -14,7 +14,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', "False") == "True"
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['212.85.17.161', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -166,11 +167,11 @@ if DEBUG:
 
 else:
 
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True    
+    # SESSION_COOKIE_SECURE = True
+    # CSRF_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',
-    'https://univercity-app-zeta.vercel.app',]
+    'https://univercity-app-zeta.vercel.app', 'http://212.85.17.161']
 
 PHONENUMBER_DEFAULT_REGION = 'BR'
 
