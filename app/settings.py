@@ -14,8 +14,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', "False") == "True"
 
-# ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['212.85.17.161', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,33 +80,33 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if DEBUG:
+# if DEBUG:
+#
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+#
+# else:
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+POSTGRES_USER = os.getenv('POSTGRES_USER')
+POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
+POSTGRES_HOST = os.getenv('POSTGRES_HOST')
+POSTGRES_PORT = os.getenv('POSTGRES_PORT')
+POSTGRES_DB = os.getenv('POSTGRES_DB')
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': POSTGRES_DB,
+        'USER': POSTGRES_USER,
+        'PASSWORD': POSTGRES_PASSWORD,
+        'HOST': POSTGRES_HOST,
+        'PORT': POSTGRES_PORT,
     }
-
-else:
-
-    POSTGRES_USER = os.getenv('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
-    POSTGRES_HOST = os.getenv('POSTGRES_HOST')
-    POSTGRES_PORT = os.getenv('POSTGRES_PORT')
-    POSTGRES_DB = os.getenv('POSTGRES_DB')
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': POSTGRES_DB,
-            'USER': POSTGRES_USER,
-            'PASSWORD': POSTGRES_PASSWORD,
-            'HOST': POSTGRES_HOST,
-            'PORT': POSTGRES_PORT,
-        }
-    }
+}
 
 
 AUTH_USER_MODEL = 'api_custom_auth.UserProfile'
@@ -157,21 +156,27 @@ DATETIME_FORMAT = 'd/m/Y às H:i:s'
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
+    'http://212.85.17.161:3000',
+    'http://212.85.17.161'
+    'http://localhost:3000',
+]
+# if DEBUG:
+#
+#     SESSION_COOKIE_SECURE = False
+#     CSRF_COOKIE_SECURE = False
+#
+# else:
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://212.85.17.161'
+    'http://212.85.17.161:3000'
     'http://localhost:3000',
     'https://univercity-app-zeta.vercel.app',
+    'http://212.85.17.161'
 ]
-if DEBUG:
-
-    SESSION_COOKIE_SECURE = False
-    CSRF_COOKIE_SECURE = False
-
-else:
-
-    # SESSION_COOKIE_SECURE = True
-    # CSRF_COOKIE_SECURE = True
-
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',
-    'https://univercity-app-zeta.vercel.app', 'http://212.85.17.161']
 
 PHONENUMBER_DEFAULT_REGION = 'BR'
 
